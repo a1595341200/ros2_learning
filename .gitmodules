@@ -1,0 +1,6 @@
+[submodule "ros2_ws/src/example"]
+	path = ros2_ws/src/example
+	url = https://github.com/ros2/examples
+[submodule "ros2_ws/src/ros_tutorials"]
+	path = ros2_ws/src/ros_tutorials
+	url = https://github.com/ros/ros_tutorials.git

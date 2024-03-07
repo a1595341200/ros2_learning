@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "/home/user/work/ros2_learning/ros2_ws/src/examples/rclcpp/composition/minimal_composition",
+    "files.associations": {
+        "chrono": "cpp"
+    }
+}
