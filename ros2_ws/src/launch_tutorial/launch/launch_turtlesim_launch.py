@@ -2,7 +2,7 @@
 Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
 Date: 2024-03-11 15:22:56
 LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
-LastEditTime: 2024-03-11 15:56:46
+LastEditTime: 2024-03-11 16:16:31
 FilePath: /ros2_learning/ros2_ws/src/launch_tutorial/launch/launch_turtlesim_launch.py
 Description: 
 
@@ -60,7 +60,7 @@ def generate_launch_description():
 
    return LaunchDescription([
       turtlesim_world_1,
-      turtlesim_world_2,
+      turtlesim_world_2_with_namespace,
       broadcaster_listener_nodes,
       mimic_node,
       fixed_frame_node,
