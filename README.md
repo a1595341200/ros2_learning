@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-03-07 05:50:56
  * @LastEditors: yao.xie 1595341200@qq.com
- * @LastEditTime: 2024-03-12 06:31:16
+ * @LastEditTime: 2024-03-12 08:21:02
  * @FilePath: /ros2_learning/README.md
  * @Description: 
  * 
@@ -26,6 +26,8 @@
   - [1.12. launch带参数](#112-launch带参数)
   - [1.13. 测试构建](#113-测试构建)
   - [1.14. URDF](#114-urdf)
+  - [1.15. fastDDS](#115-fastdds)
+  - [1.16. rviz插件开发](#116-rviz插件开发)
 
 # 1. ros2_learning
 
@@ -204,4 +206,37 @@ run
 apt install ros-iron-urdf-launch
 apt install  joint_state_publisher-gui
 ros2 launch urdf_tutorial display.launch.py model:=urdf/05-visual.urdf
+```
+
+
+## 1.15. fastDDS
+
+```
+设置ID为0 端口为11811
+fastdds discovery --server-id 0
+在另一个终端设置
+export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener_discovery_server
+
+在另一个终端设置
+export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_discovery_server
+```
+
+冗余服务发现
+
+```
+fastdds discovery --server-id 0 -l 127.0.0.1 -p 11811
+fastdds discovery --server-id 1 -l 127.0.0.1 -p 11888
+export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
+```
+
+```
+备份通信
+fastdds discovery --server-id 0 -l 127.0.0.1 -p 11811 --backup
+```
+## 1.16. rviz插件开发
+
+```
+https://github.com/ros2/rviz/blob/rolling/docs/plugin_development.md
 ```
