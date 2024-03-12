@@ -1,8 +1,8 @@
 <!--
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-03-07 05:50:56
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-03-07 09:26:00
+ * @LastEditors: yao.xie 1595341200@qq.com
+ * @LastEditTime: 2024-03-12 06:31:16
  * @FilePath: /ros2_learning/README.md
  * @Description: 
  * 
@@ -20,6 +20,12 @@
   - [1.6. 参数](#16-参数)
   - [1.7. ros2doctor](#17-ros2doctor)
   - [1.8. 创建和使用插件](#18-创建和使用插件)
+  - [1.9. 安装依赖](#19-安装依赖)
+  - [1.10. action](#110-action)
+  - [1.11. 查看广播图](#111-查看广播图)
+  - [1.12. launch带参数](#112-launch带参数)
+  - [1.13. 测试构建](#113-测试构建)
+  - [1.14. URDF](#114-urdf)
 
 # 1. ros2_learning
 
@@ -153,4 +159,49 @@ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies plu
 
 ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies polygon_base pluginlib --library-name polygon_plugins polygon_plugins
 colcon build --packages-select polygon_base polygon_plugins
+```
+## 1.9. 安装依赖
+
+```
+rosdep install --from-paths src -y --ignore-src
+```
+## 1.10. action
+
+```
+ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
+```
+
+## 1.11. 查看广播图
+
+```
+ros2 run tf2_tools view_frames
+ros2 run tf2_ros tf2_echo world turtle1
+ros2 run tf2_ros tf2_monitor turtle2 turtle1
+```
+## 1.12. launch带参数
+
+```
+ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
+或者在launch文件加入
+launch_arguments={'target_frame': 'carrot1'}.items(),
+```
+
+## 1.13. 测试构建
+
+```
+colcon test --ctest-args tests  --packages-select learning_tf2_cpp
+colcon test-result --all
+colcon test-result --all --verbose
+colcon build --cmake-clean-cache --mixin debug
+gdb -ex run ./build/rcl/test/test_logging
+gdb ./build/rcl/test/test_logging
+catch throw
+run
+```
+## 1.14. URDF
+
+```
+apt install ros-iron-urdf-launch
+apt install  joint_state_publisher-gui
+ros2 launch urdf_tutorial display.launch.py model:=urdf/05-visual.urdf
 ```

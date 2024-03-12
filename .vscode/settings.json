@@ -2,5 +2,6 @@
     "cmake.sourceDirectory": "/home/user/work/ros2_learning/ros2_ws/src/examples/rclcpp/composition/minimal_composition",
     "files.associations": {
         "chrono": "cpp"
-    }
+    },
+    "python.autoComplete.extraPaths": ["/opt/ros/iron/lib/python3.10/site-packages"]
 }
