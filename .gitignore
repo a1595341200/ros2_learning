@@ -1,3 +1,6 @@
 ros2_ws/build/*
 ros2_ws/log/*
 ros2_ws/install/*
+rviz2/build/*
+rviz2/log/*
+rviz2/install/*

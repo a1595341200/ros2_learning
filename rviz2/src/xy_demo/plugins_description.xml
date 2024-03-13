@@ -1,0 +1,7 @@
+<library path="xy_demo">
+  <class name="demo/MyTest" 
+   type="demo::MyTest" base_class_type="rviz_common::Display">
+    <description>This is a square plugin.</description>
+    <message_type>sensor_msgs/msg/Imu</message_type>
+  </class>
+</library>
